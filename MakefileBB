@@ -858,8 +858,8 @@ hm2_eth-objs  :=			  \
 hm2_spi-objs  :=			  \
     hal/drivers/mesa-hostmot2/hm2_spi.o   \
     $(MATHSTUB)
-hal_bb_gpio-objs  :=			  \		
-    hal/drivers/hal_bb_gpio.o		  \		
+hal_bb_gpio-objs  :=			  \
+    hal/drivers/hal_bb_gpio.o		  \
     $(MATHSTUB)
 hm2_test-objs :=			  \
     hal/drivers/mesa-hostmot2/hm2_test.o  \
