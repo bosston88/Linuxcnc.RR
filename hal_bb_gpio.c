@@ -65,7 +65,7 @@ static char *output_pins;
 RTAPI_MP_STRING(output_pins, "output pins, comma separated.  P8 pins add 800, P9 pins add 900");
 
 int configure_control_module() {
-    int fd = open("/dev/mem", O_RDWR|O_SYNC);
+    int fd = rtapi_open_as_root("/dev/mem", O_RDWR);
 
     control_module = mmap(0, CONTROL_MODULE_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, CONTROL_MODULE_START_ADDR);
 
@@ -83,7 +83,7 @@ int configure_gpio_port(int n) {
     volatile unsigned int *regptr;
     unsigned int regvalue;
 
-    int fd = open("/dev/mem", O_RDWR|O_SYNC);
+    int fd = rtapi_open_as_root("/dev/mem", O_RDWR);
 
     gpio_ports[n] = hal_malloc(sizeof(bb_gpio_port));
 
